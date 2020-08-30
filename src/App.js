@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Title from './components/title';
 import Month from './components/Month';
 
 function App() {
@@ -9,7 +10,11 @@ function App() {
   const [year, setYear] = useState("");
   const [totalDays, setTotalDays] = useState("");
 
-  // let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  //update total day and strating day to rerender on month change
+  const updateDays = (y, m) => {
+    setStartDayOfMonth(new Date(y, m, 1).getDay());
+    setTotalDays(new Date(y, m + 1, 0).getDate());
+  }
 
   useEffect(() => {
     const loadState = () => {
@@ -17,14 +22,29 @@ function App() {
       let y = new Date().getFullYear();
       setMonth(m);
       setYear(y);
-      setStartDayOfMonth(new Date(y, m, 1).getDay());
-      setTotalDays(new Date(y, m + 1, 0).getDate());
+      updateDays(y, m);
     }
     loadState();
   }, []);
 
+  useEffect(() => {
+    updateDays(year, month);
+  }, [month, year]);
+
   return (
-    <div>
+    <div className="app-container">
+      <Title
+        days={days}
+        setDays={setDays}
+        setStartDayOfMonth={setStartDayOfMonth}
+        startDayOfMonth={startDayOfMonth}
+        month={month}
+        setMonth={setMonth}
+        year={year}
+        setYear={setYear}
+        totalDays={totalDays}
+        setTotalDays={setTotalDays}
+      />
       <Month
         days={days}
         setDays={setDays}

@@ -8,10 +8,10 @@ const Month = ({ days, setDays, startDayOfMonth, setStartDayOfMonth, month, setM
         //function loads days into days array
         const loadDays = () => {
             let dateCounter = 1;
-            let temp = [""];
+            let temp = [];
             //insert empty string first to skip start days
-            for (let i = 1; i < startDayOfMonth + totalDays; i++) {
-                if (i < startDayOfMonth) {
+            for (let i = 0; i < startDayOfMonth + totalDays; i++) {
+                if (i < startDayOfMonth && startDayOfMonth !== 0) {
                     temp.push(" ");
                 } else {
                     temp.push(dateCounter);
@@ -21,7 +21,6 @@ const Month = ({ days, setDays, startDayOfMonth, setStartDayOfMonth, month, setM
             setDays(temp);
 
             let tempRows = "<tr>";
-
             //generate rows of the array for the table
             for (let i = 0; i < temp.length; i++) {
                 if ((i) % 7 === 0) {
@@ -39,7 +38,7 @@ const Month = ({ days, setDays, startDayOfMonth, setStartDayOfMonth, month, setM
             setRows(tempRows);
         }
         loadDays();
-    }, [startDayOfMonth, totalDays, setDays, setRows]);
+    }, [startDayOfMonth, totalDays, setDays, setRows, month]);
 
     return (
         <table>
@@ -55,15 +54,6 @@ const Month = ({ days, setDays, startDayOfMonth, setStartDayOfMonth, month, setM
                 </tr>
             </thead>
             <tbody dangerouslySetInnerHTML={{ __html: rows }}>
-                {/* {days.map((day, index) => {
-                    if ((index + 1) % 7 === 0) {
-                        return <tr><td key={Math.random() * 10000}>{day}</td></tr>;
-                    } else {
-                        return <td key={Math.random() * 10000}>{day}</td>;
-                    } */}
-                {/* console.log("i: " + index + "= " + index % 7);
-                    return <td key={Math.random() * 10000}>{day}</td>; */}
-                {/* })} */}
             </tbody>
         </table>
     );
