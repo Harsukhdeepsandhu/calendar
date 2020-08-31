@@ -1,5 +1,7 @@
 # Calendar app built using React JS
 
+## Live preview at https://calendar-ochre.vercel.app
+
 ![Screen Shot](https://github.com/Harsukhdeepsandhu/calendar/blob/master/calendar_image.png?raw=true)
 
 ## It runs without the need of the third party libraries, it just requires react hooks.
