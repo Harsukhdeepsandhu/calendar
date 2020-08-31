@@ -5,15 +5,49 @@
 
 .app-container {
     width: 400px;
+    margin: auto;
+    margin-top: 10px;
 
     table {
         width: 100%;
         text-align: center;
-        border: 2px solid black;
+        border: 1px solid black;
         border-collapse: collapse;
+        font-size: 20px;
+    }
 
-        tr {
-            border: 2px solid black;
+    .title-table {
+        border-bottom: none;
+
+        td {
+            height: 40px;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+    }
+
+    .month-table {
+        border-top: none;
+
+        td {
+            padding: 10px;
+        }
+
+        .date-field:hover {
+            background-color: orange;
+            color: white;
+            cursor: default;
+        }
+
+        .weekend-color {
+            color: red;
+        }
+
+        .current-date {
+            background-color: rgb(0, 152, 253);
+            color: white;
         }
     }
 }

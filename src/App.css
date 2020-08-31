@@ -5,16 +5,50 @@
 
 .app-container {
   width: 400px;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .app-container table {
   width: 100%;
   text-align: center;
-  border: 2px solid black;
+  border: 1px solid black;
   border-collapse: collapse;
+  font-size: 20px;
 }
 
-.app-container table tr {
-  border: 2px solid black;
+.app-container .title-table {
+  border-bottom: none;
+}
+
+.app-container .title-table td {
+  height: 40px;
+}
+
+.app-container .title-table .cursor-pointer {
+  cursor: pointer;
+}
+
+.app-container .month-table {
+  border-top: none;
+}
+
+.app-container .month-table td {
+  padding: 10px;
+}
+
+.app-container .month-table .date-field:hover {
+  background-color: orange;
+  color: white;
+  cursor: default;
+}
+
+.app-container .month-table .weekend-color {
+  color: red;
+}
+
+.app-container .month-table .current-date {
+  background-color: #0098fd;
+  color: white;
 }
 /*# sourceMappingURL=App.css.map */
